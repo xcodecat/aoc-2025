@@ -8,18 +8,18 @@ dotenv.load_dotenv()
 
 day = datetime.today().day
 result = requests.get(
-    f'https://adventofcode.com/2025/day/{day}/input',
-    cookies={'session': os.environ['SESSION_TOKEN']},
+    f"https://adventofcode.com/2025/day/{day}/input",
+    cookies={"session": os.environ["SESSION_TOKEN"]},
 )
 
-for l in result.text.split('\n')[:5]:
+for l in result.text.split("\n")[:5]:
     print(l)
-print('...')
+print("...")
 
-with open(f'inputs/{day:02d}', 'w') as f:
+with open(f"inputs/{day:02d}", "w") as f:
     f.write(result.text[:-1])
 
-with open(f'solutions/{day:02d}.py', 'w') as f:
+with open(f"solutions/{day:02d}.py", "w") as f:
     f.write(
         f"""from utils.runtime import get_runtime
 
