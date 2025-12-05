@@ -23,6 +23,7 @@ def part_1(l: list[str]):
             ranges.append(splitted)
         else:
             ingredients.append(int(line))
+    ranges = merge_ranges(ranges)
     for ingredient in ingredients:
         for range in ranges:
             if ingredient >= int(range[0]) and ingredient <= int(range[1]):
@@ -57,7 +58,7 @@ def part_2(l: list[str]):
         elif "-" in line:
             splitted = line.split("-")
             ranges.append(splitted)
-            ranges = merge_ranges(ranges)
+    ranges = merge_ranges(ranges)
     for r in ranges:
         count += len(range(int(r[0]), int(r[1]))) + 1
     print(count)
